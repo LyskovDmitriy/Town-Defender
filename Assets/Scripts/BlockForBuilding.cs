@@ -6,23 +6,34 @@ public class BlockForBuilding : MonoBehaviour
 {
 
 	public static event System.Action ranOutOfLives;
+	public static int NumberOfBlocks { get; private set; }
+	public static int Lives { get; private set; }
 
 
 	private static MainUI UI;
-	private static int lives = 0;
 
 
-	void Start()
+	void Awake()
 	{
-
+		Lives = 0;
+		NumberOfBlocks = 0;
 		if (UI == null)
 		{
 			UI = FindObjectOfType<MainUI>();
 		}
+	}
+
+
+	void Start()
+	{
 		if (CompareTag("TargetBlock"))
 		{
-			lives++;
-			UI.ChangeLives(lives);
+			Lives++;
+			UI.ChangeLives(Lives);
+		}
+		else
+		{
+			NumberOfBlocks++;
 		}
 	}
 
@@ -33,12 +44,16 @@ public class BlockForBuilding : MonoBehaviour
 		{
 			if (CompareTag("TargetBlock"))
 			{
-				lives--;
-				UI.ChangeLives(lives);
-				if (lives <= 0 && ranOutOfLives != null)
+				Lives--;
+				UI.ChangeLives(Lives);
+				if (Lives <= 0 && ranOutOfLives != null)
 				{
 					ranOutOfLives();
 				}
+			}
+			else
+			{
+				NumberOfBlocks--;
 			}
 			Destroy(collider.gameObject);
 			Destroy(gameObject);

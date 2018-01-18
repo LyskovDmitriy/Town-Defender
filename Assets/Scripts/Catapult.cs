@@ -48,7 +48,7 @@ public class Catapult : MonoBehaviour
 
 	IEnumerator SpawnProjectile()
 	{
-		Debug.Log("Spawn");
+		//Debug.Log("Spawn");
 		startedSpawning = true;
 		yield return new WaitForSeconds(timeToSpawnProjectile);
 		Projectile projectile = Instantiate(projectilePrefab, placeForProjectile).GetComponent<Projectile>();
