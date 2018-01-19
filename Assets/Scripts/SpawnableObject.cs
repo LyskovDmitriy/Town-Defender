@@ -8,9 +8,37 @@ public class SpawnableObject : MonoBehaviour
 	public static int CurrentNumberOfObjects { get; set; }
 
 
+	public float massMultiplierWithWrongProjectile;
+
+
+	public ProjectileType type;
+
+
 	private Rigidbody rb;
+	private float mass;
 	private bool hasDecreasedNumber;
 	private bool hasStartedCoroutine;
+
+
+	public void CheckProjectileType(ProjectileType projectileType)
+	{
+		if (type != projectileType)
+		{
+			float newMass = mass * massMultiplierWithWrongProjectile;
+			if (mass <= newMass)
+			{
+				rb.velocity /= massMultiplierWithWrongProjectile;
+			}
+			rb.mass = newMass;
+		}
+	}
+
+
+	public void ApplyType(ProjectileInfo info)
+	{
+		GetComponent<MeshRenderer>().material = info.projectileMaterial;
+		type = info.type;
+	}
 
 
 	IEnumerator WaitForStop()
@@ -39,6 +67,7 @@ public class SpawnableObject : MonoBehaviour
 		hasDecreasedNumber = false;
 		hasStartedCoroutine = false;
 		rb = GetComponent<Rigidbody>();
+		mass = rb.mass;
 	}
 
 	

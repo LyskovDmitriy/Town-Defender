@@ -11,12 +11,24 @@ public class Catapult : MonoBehaviour
 	public Transform backLineStart;
 	public LineRenderer frontLine;
 	public LineRenderer backLine;
+	public ProjectileInfo projectileInfo;
 	public int numberOfLinePositions;
 	public float timeToSpawnProjectile;
 
 
 	private SpringJoint spring;
+	private Projectile currentProjectile;
 	private bool startedSpawning;
+
+
+	public void SetProjectileInfo(ProjectileInfo info)
+	{
+		projectileInfo = info;
+		if (currentProjectile.transform.parent == placeForProjectile)
+		{
+			currentProjectile.SetProjectileInfo(projectileInfo);
+		}
+	}
 
 	
 	void Start () 
@@ -32,6 +44,7 @@ public class Catapult : MonoBehaviour
 	{
 		if (spring.connectedBody == null && !startedSpawning)
 		{
+			startedSpawning = true;
 			StartCoroutine(SpawnProjectile());
 		}
 		if (spring.connectedBody != null)
@@ -48,14 +61,13 @@ public class Catapult : MonoBehaviour
 
 	IEnumerator SpawnProjectile()
 	{
-		//Debug.Log("Spawn");
-		startedSpawning = true;
 		yield return new WaitForSeconds(timeToSpawnProjectile);
-		Projectile projectile = Instantiate(projectilePrefab, placeForProjectile).GetComponent<Projectile>();
-		projectile.gameObject.transform.localPosition = Vector3.zero;
-		spring.connectedBody = projectile.GetComponent<Rigidbody>();
-		projectile.anchor = placeForProjectile;
-		projectile.spring = spring;
+		currentProjectile = Instantiate(projectilePrefab, placeForProjectile.position, Quaternion.identity).GetComponent<Projectile>();
+		currentProjectile.transform.SetParent(placeForProjectile);
+		currentProjectile.SetProjectileInfo(projectileInfo);
+		spring.connectedBody = currentProjectile.GetComponent<Rigidbody>();
+		currentProjectile.anchor = placeForProjectile;
+		currentProjectile.spring = spring;
 		startedSpawning = false;
 	}
 

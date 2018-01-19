@@ -7,9 +7,11 @@ public class Projectile : MonoBehaviour
 
 	public SpringJoint spring;
 	public Transform anchor;
+	public ProjectileType type;
 	public float maxDistance;
 
 
+	private MeshRenderer renderer;
 	private Rigidbody rb;
 	private Vector3 previousVelocity;
 	private float cameraOffsetZ;
@@ -17,9 +19,24 @@ public class Projectile : MonoBehaviour
 	private bool isReleased = false;
 
 
+	public void SetProjectileInfo(ProjectileInfo info)
+	{
+		type = info.type;
+		renderer.material = info.projectileMaterial;
+		rb.mass = info.mass;
+		transform.localScale = Vector3.one * info.baseSize * transform.localScale.x / transform.lossyScale.x;
+	}
+
+
+	void Awake()
+	{
+		renderer = GetComponent<MeshRenderer>();
+		rb = GetComponent<Rigidbody>();
+	}
+
+
 	void Start()
 	{
-		rb = GetComponent<Rigidbody>();
 		previousVelocity = Vector3.zero;
 		rb.isKinematic = true;
 		cameraOffsetZ = -Camera.main.transform.position.z;
@@ -28,7 +45,7 @@ public class Projectile : MonoBehaviour
 
 	void Update()
 	{
-		if (isMousePressed)
+		if (isMousePressed && !isReleased)
 		{
 			if (Input.GetMouseButtonUp(0))
 			{		
@@ -77,6 +94,7 @@ public class Projectile : MonoBehaviour
 		spring.connectedBody = null;
 		isReleased = false;
 		transform.SetParent(null);
+		enabled = false;
 	}
 
 
@@ -89,5 +107,15 @@ public class Projectile : MonoBehaviour
 	void OnBecameInvisible()
 	{
 		Destroy(gameObject);
+	}
+
+
+	void OnCollisionEnter(Collision collider)
+	{
+		SpawnableObject obj = collider.gameObject.GetComponent<SpawnableObject>();
+		if (obj != null)
+		{
+			obj.CheckProjectileType(type);
+		}
 	}
 }

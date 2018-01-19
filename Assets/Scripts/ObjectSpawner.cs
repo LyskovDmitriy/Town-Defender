@@ -6,10 +6,10 @@ public class ObjectSpawner : MonoBehaviour
 {
 
 	public ObjectForSpawner[] objectsForSpawn;
+	public ProjectileInfo[] types;
 	public Transform leftBorder;
 	public Transform rightBorder;
 	public int amountOfObjectsToSpawn;
-	public int timeToGameWon;
 	public float timeBetweenSpawns;
 
 	
@@ -32,6 +32,11 @@ public class ObjectSpawner : MonoBehaviour
 			Rigidbody objectRB = newObject.GetComponent<Rigidbody>();
 			objectRB.mass = objectsForSpawn[objectNumber].objectMass;
 			objectRB.drag = objectsForSpawn[objectNumber].objectDrag;
+			if (types.Length > 0)
+			{
+				ProjectileInfo info = types[Random.Range(0, types.Length)];
+				newObject.GetComponent<SpawnableObject>().ApplyType(info);
+			}
 			amountOfObjectsToSpawn--;
 		}
 

@@ -419,6 +419,7 @@ MonoBehaviour:
   backLineStart: {fileID: 4418073414124232}
   frontLine: {fileID: 120295771220469626}
   backLine: {fileID: 120489039776064476}
+  projectileInfo: {fileID: 11400000, guid: 2c63f369cb7a91e4da281d1545796f5d, type: 2}
   numberOfLinePositions: 2
   timeToSpawnProjectile: 0.5
 --- !u!120 &120295771220469626
@@ -458,7 +459,7 @@ LineRenderer:
   m_Positions: []
   m_Parameters:
     serializedVersion: 2
-    widthMultiplier: 0.2
+    widthMultiplier: 0.15
     widthCurve:
       serializedVersion: 2
       m_Curve:
@@ -544,7 +545,7 @@ LineRenderer:
   m_Positions: []
   m_Parameters:
     serializedVersion: 2
-    widthMultiplier: 0.2
+    widthMultiplier: 0.15
     widthCurve:
       serializedVersion: 2
       m_Curve:
