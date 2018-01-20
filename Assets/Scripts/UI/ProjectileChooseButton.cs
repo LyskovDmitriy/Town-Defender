@@ -14,16 +14,15 @@ public class ProjectileChooseButton : MonoBehaviour
 
 	public void ChooseProjectile()
 	{
-		catapult.SetProjectileInfo(projectileInfo);
-	}
-
-
-	void Start () 
-	{
 		if (catapult == null)
 		{
 			catapult = FindObjectOfType<Catapult>();
+			if (catapult == null)
+			{
+				return;
+			}
 		}
+		catapult.SetProjectileInfo(projectileInfo);
 	}
 
 

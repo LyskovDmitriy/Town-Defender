@@ -3773,7 +3773,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Select Level
+  m_Text: Tutorials
 --- !u!222 &426622816
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3915,7 +3915,7 @@ GameObject:
   - component: {fileID: 976601667}
   - component: {fileID: 976601666}
   m_Layer: 5
-  m_Name: LevelSelectButton
+  m_Name: TutorialButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

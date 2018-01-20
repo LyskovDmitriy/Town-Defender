@@ -14,4 +14,4 @@ MonoBehaviour:
   type: 1
   projectileMaterial: {fileID: 2100000, guid: f6cb1ecc16e586a478a32b66371c0bc5, type: 2}
   mass: 1
-  baseSize: 0.75
+  baseSize: 0.8

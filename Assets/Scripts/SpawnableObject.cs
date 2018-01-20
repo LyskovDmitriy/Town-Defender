@@ -31,6 +31,10 @@ public class SpawnableObject : MonoBehaviour
 			}
 			rb.mass = newMass;
 		}
+		else if (rb.mass > mass)
+		{
+			rb.mass = mass;
+		}
 	}
 
 
