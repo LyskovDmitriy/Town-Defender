@@ -38,12 +38,12 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 11
-  m_GIWorkflowMode: 0
+  m_GIWorkflowMode: 1
   m_GISettings:
     serializedVersion: 2
     m_BounceScale: 1
@@ -89,7 +89,8 @@ LightmapSettings:
     m_PVRFilteringAtrousPositionSigmaIndirect: 2
     m_PVRFilteringAtrousPositionSigmaAO: 1
     m_ShowResolutionOverlay: 1
-  m_LightingDataAsset: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000002, guid: 8c568b404bda24644a6c5e2689d883e0,
+    type: 2}
   m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
@@ -233,7 +234,7 @@ Prefab:
     - target: {fileID: 224192805323557520, guid: bc5a1a27305f13d4981617133b349c86,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 865
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 224192805323557520, guid: bc5a1a27305f13d4981617133b349c86,
         type: 2}
@@ -357,6 +358,12 @@ RectTransform:
   m_PrefabParentObject: {fileID: 224192805323557520, guid: bc5a1a27305f13d4981617133b349c86,
     type: 2}
   m_PrefabInternal: {fileID: 384647667}
+--- !u!114 &384647669 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114163294704516462, guid: bc5a1a27305f13d4981617133b349c86,
+    type: 2}
+  m_PrefabInternal: {fileID: 384647667}
+  m_Script: {fileID: 1392445389, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!1 &439031275
 GameObject:
   m_ObjectHideFlags: 0
@@ -602,6 +609,11 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114336598252129824, guid: bc5a1a27305f13d4981617133b349c86,
+        type: 2}
+      propertyPath: m_FillCenter
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bc5a1a27305f13d4981617133b349c86, type: 2}
   m_IsPrefabParent: 0
@@ -610,6 +622,12 @@ RectTransform:
   m_PrefabParentObject: {fileID: 224192805323557520, guid: bc5a1a27305f13d4981617133b349c86,
     type: 2}
   m_PrefabInternal: {fileID: 595124549}
+--- !u!114 &595124551 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114163294704516462, guid: bc5a1a27305f13d4981617133b349c86,
+    type: 2}
+  m_PrefabInternal: {fileID: 595124549}
+  m_Script: {fileID: 1392445389, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!1001 &885775733
 Prefab:
   m_ObjectHideFlags: 0
@@ -665,7 +683,7 @@ Prefab:
     - target: {fileID: 224192805323557520, guid: bc5a1a27305f13d4981617133b349c86,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 335
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 224192805323557520, guid: bc5a1a27305f13d4981617133b349c86,
         type: 2}
@@ -1060,6 +1078,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a93b1009442602847b07d03b5d81183c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  requests:
+  - requestName: Tutorial 1
+    targetButton: {fileID: 595124551}
+  - requestName: Tutorial 2
+    targetButton: {fileID: 384647669}
 --- !u!1 &1421089409
 GameObject:
   m_ObjectHideFlags: 0

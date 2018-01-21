@@ -31,6 +31,21 @@ public class GameOverUI : MonoBehaviour
 			gameOverScreen.SetActive(true);
 			gameOverText.text = "Game Won";
 			DisplayScore();
+			PlayerPrefs.SetInt(SceneManager.GetActiveScene().name, 1);
+		}
+	}
+
+
+	protected virtual void GameLost()
+	{
+		if (!isGameWon)
+		{
+			isGameLost = true;
+			gameOverScreen.SetActive(true);
+			if (pointsObject != null)
+			{
+				pointsObject.SetActive(false);
+			}
 		}
 	}
 
@@ -47,17 +62,6 @@ public class GameOverUI : MonoBehaviour
 		}
 
 		BlockForBuilding.ranOutOfLives += GameLost;
-	}
-		
-
-	void GameLost()
-	{
-		if (!isGameWon)
-		{
-			isGameLost = true;
-			gameOverScreen.SetActive(true);
-			pointsObject.SetActive(false);
-		}
 	}
 
 

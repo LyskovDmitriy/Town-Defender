@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4cfe2083c64fbed44bf14d81144d925e, type: 3}
+  m_Name: DifficultyData
+  m_EditorClassIdentifier: 
+  timeToMaxDifficulty: 600
+  maxTimeBetweenSpawns: 4.5
+  minTimeBetweenSpawns: 1.75
+  maxSize: 2
+  minSize: 1
+  maxMass: 2
+  minMass: 0.5
+  maxDrag: 5
+  minDrag: 2.5

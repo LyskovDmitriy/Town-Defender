@@ -12,6 +12,18 @@ public class ObjectSpawner : MonoBehaviour
 	public int amountOfObjectsToSpawn;
 	public float timeBetweenSpawns;
 
+
+	public void ApplyDifficulty(float time, float size, float mass, float drag)
+	{
+		timeBetweenSpawns = time;
+		for (int i = 0; i < objectsForSpawn.Length; i++)
+		{
+			objectsForSpawn[i].objectSize = size;
+			objectsForSpawn[i].objectMass = mass;
+			objectsForSpawn[i].objectDrag = drag;
+		}
+	}
+
 	
 	void Start () 
 	{
@@ -27,7 +39,8 @@ public class ObjectSpawner : MonoBehaviour
 			yield return new WaitForSeconds(timeBetweenSpawns);
 			int objectNumber = Random.Range(0, objectsForSpawn.Length);
 			Vector3 randomPosition = Vector3.Lerp(leftBorder.position, rightBorder.position, Random.Range(0.0f, 1.0f));
-			GameObject newObject = Instantiate(objectsForSpawn[objectNumber].spawnObjectPrefab, randomPosition, Quaternion.identity);
+			Quaternion randomRotation = Quaternion.Euler(new Vector3(0.0f, 0.0f, Random.Range(0.0f, 360.0f)));
+			GameObject newObject = Instantiate(objectsForSpawn[objectNumber].spawnObjectPrefab, randomPosition, randomRotation);
 			newObject.transform.localScale = Vector3.one * objectsForSpawn[objectNumber].objectSize;
 			Rigidbody objectRB = newObject.GetComponent<Rigidbody>();
 			objectRB.mass = objectsForSpawn[objectNumber].objectMass;
