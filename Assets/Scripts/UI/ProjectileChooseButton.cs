@@ -28,7 +28,7 @@ public class ProjectileChooseButton : MonoBehaviour
 
 	void Update()
 	{
-		#if UNITY_EDITOR_WIN
+		#if UNITY_EDITOR_WIN || UNITY_STANDALONE_WIN
 		if (Input.GetKeyDown(buttonCode))
 		{
 			ChooseProjectile();

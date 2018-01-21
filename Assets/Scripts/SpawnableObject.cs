@@ -55,7 +55,6 @@ public class SpawnableObject : MonoBehaviour
 				{
 					hasDecreasedNumber = true;
 					CurrentNumberOfObjects--;
-					//Debug.Log(CurrentNumberOfObjects);
 				}
 				yield break;
 			}
@@ -67,7 +66,6 @@ public class SpawnableObject : MonoBehaviour
 	void Start () 
 	{
 		CurrentNumberOfObjects++;
-		//Debug.Log(CurrentNumberOfObjects);
 		hasDecreasedNumber = false;
 		hasStartedCoroutine = false;
 		rb = GetComponent<Rigidbody>();
@@ -92,7 +90,6 @@ public class SpawnableObject : MonoBehaviour
 		{
 			hasDecreasedNumber = true;
 			CurrentNumberOfObjects--;
-			//Debug.Log(CurrentNumberOfObjects);
 		}
 		Destroy(gameObject);
 	}

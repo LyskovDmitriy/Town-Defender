@@ -421,7 +421,7 @@ MonoBehaviour:
   backLine: {fileID: 120489039776064476}
   projectileInfo: {fileID: 11400000, guid: 2c63f369cb7a91e4da281d1545796f5d, type: 2}
   numberOfLinePositions: 2
-  timeToSpawnProjectile: 0.5
+  timeToSpawnProjectile: 0.3
 --- !u!120 &120295771220469626
 LineRenderer:
   m_ObjectHideFlags: 1

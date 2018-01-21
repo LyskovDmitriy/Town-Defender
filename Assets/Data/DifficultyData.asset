@@ -11,12 +11,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4cfe2083c64fbed44bf14d81144d925e, type: 3}
   m_Name: DifficultyData
   m_EditorClassIdentifier: 
-  timeToMaxDifficulty: 600
-  maxTimeBetweenSpawns: 4.5
-  minTimeBetweenSpawns: 1.75
+  timeToMaxDifficulty: 500
+  maxTimeBetweenSpawns: 4
+  minTimeBetweenSpawns: 1
   maxSize: 2
-  minSize: 1
+  minSize: 0.4
   maxMass: 2
-  minMass: 0.5
+  minMass: 0.75
   maxDrag: 5
-  minDrag: 2.5
+  minDrag: 1.75
